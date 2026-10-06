@@ -1,5 +1,4 @@
 use lazy_static::lazy_static;
-use rand::thread_rng;
 use serde_json::Value;
 
 use crate::*;
@@ -13,29 +12,54 @@ lazy_static! {
 
 #[test]
 fn check_serialize_vss_commitment() {
-    let rng = thread_rng();
+    let rng = rand::rngs::OsRng;
     frost_core::tests::vss_commitment::check_serialize_vss_commitment::<Secp256K1Sha256TR, _>(rng);
 }
 
 #[test]
+fn check_serialize_whole_vss_commitment() {
+    let rng = rand::rngs::OsRng;
+    frost_core::tests::vss_commitment::check_serialize_whole_vss_commitment::<Secp256K1Sha256TR, _>(
+        rng,
+    );
+}
+
+#[test]
 fn check_deserialize_vss_commitment() {
-    let rng = thread_rng();
+    let rng = rand::rngs::OsRng;
     frost_core::tests::vss_commitment::check_deserialize_vss_commitment::<Secp256K1Sha256TR, _>(
         rng,
     );
 }
 
 #[test]
+fn check_deserialize_whole_vss_commitment() {
+    let rng = rand::rngs::OsRng;
+    frost_core::tests::vss_commitment::check_deserialize_whole_vss_commitment::<Secp256K1Sha256TR, _>(
+        rng,
+    );
+}
+
+#[test]
 fn check_deserialize_vss_commitment_error() {
-    let rng = thread_rng();
+    let rng = rand::rngs::OsRng;
     frost_core::tests::vss_commitment::check_deserialize_vss_commitment_error::<Secp256K1Sha256TR, _>(
         rng, &ELEMENTS,
     );
 }
 
 #[test]
+fn check_deserialize_whole_vss_commitment_error() {
+    let rng = rand::rngs::OsRng;
+    frost_core::tests::vss_commitment::check_deserialize_whole_vss_commitment_error::<
+        Secp256K1Sha256TR,
+        _,
+    >(rng, &ELEMENTS);
+}
+
+#[test]
 fn check_compute_public_key_package() {
-    let rng = thread_rng();
+    let rng = rand::rngs::OsRng;
     frost_core::tests::vss_commitment::check_compute_public_key_package::<Secp256K1Sha256TR, _>(
         rng,
     );

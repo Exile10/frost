@@ -1,15 +1,7 @@
 //! FROST Error types
 
-#[cfg(feature = "std")]
-use thiserror::Error;
-
-#[cfg(not(feature = "std"))]
-use thiserror_nostd_notrait::Error;
-
 use crate::{Ciphersuite, Identifier};
-
-#[derive(Error, Debug, Clone, Copy, Eq, PartialEq)]
-pub struct ParticipantError<C: Ciphersuite>(Identifier<C>);
+use thiserror::Error;
 
 /// An error related to FROST.
 #[non_exhaustive]
