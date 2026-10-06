@@ -17,7 +17,7 @@
 //!
 //! As required for any multi-party protocol using Feldman's VSS, the key
 //! generation stage in FROST requires participants to maintain a consistent
-//! view of the pubic commitments to the secret polynomial coefficients. This
+//! view of the public commitments to the secret polynomial coefficients. This
 //! DKG protocol requires participants to broadcast the commitment values
 //! honestly (e.g., participants do not provide different commitment values to a
 //! subset of participants) over a _[secure broadcast channel]_.
@@ -484,7 +484,7 @@ pub(crate) fn verify_proof_of_knowledge<C: Ciphersuite>(
 /// `round1_packages` maps the identifier of each other participant to the
 /// [`round1::Package`] they sent to the current participant (the owner of
 /// `secret_package`). These identifiers must come from whatever mapping the
-/// coordinator has between communication channels and participants, i.e. they
+/// participant has between communication channels and participants, i.e. they
 /// must have assurance that the [`round1::Package`] came from the participant
 /// with that identifier.
 ///
@@ -561,7 +561,7 @@ pub fn part2<C: Ciphersuite>(
 /// `round2_packages` maps the identifier of each other participant to the
 /// [`round2::Package`] they sent to the current participant (the owner of
 /// `secret_package`). These identifiers must come from whatever mapping the
-/// coordinator has between communication channels and participants, i.e. they
+/// participant has between communication channels and participants, i.e. they
 /// must have assurance that the [`round2::Package`] came from the participant
 /// with that identifier.
 ///

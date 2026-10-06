@@ -1,4 +1,4 @@
-#![cfg_attr(not(feature = "std"), no_std)]
+#![no_std]
 #![allow(non_snake_case)]
 // It's emitting false positives; see https://github.com/rust-lang/rust-clippy/issues/9413
 #![allow(clippy::derive_partial_eq_without_eq)]
@@ -731,7 +731,7 @@ fn detect_cheater<C: Ciphersuite>(
 /// for which the signature share was produced and with the group's
 /// `verifying_key`.
 ///
-/// This is not required for regular FROST usage but might useful in certain
+/// This is not required for regular FROST usage but might be useful in certain
 /// situations where it is desired to verify each individual signature share
 /// before aggregating the signature.
 pub fn verify_signature_share<C: Ciphersuite>(
